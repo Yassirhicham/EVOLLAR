@@ -29,6 +29,7 @@
             color: var(--text-light);
             font-family: 'Space Grotesk', sans-serif;
             overflow-x: hidden;
+            touch-action: none;
         }
         
         .container {
@@ -42,7 +43,7 @@
         header {
             padding: 30px 0;
             position: relative;
-            z-index: 10;
+            z-index: 100;
         }
         
         .header-content {
@@ -96,12 +97,12 @@
         
         /* Hero section futurista */
         .services-hero {
-            height: 70vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            margin-bottom: 100px;
+            margin-bottom: 50px;
         }
         
         .hero-bg {
@@ -124,7 +125,7 @@
         }
         
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 30px;
             background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
             -webkit-background-clip: text;
@@ -132,12 +133,6 @@
             color: transparent;
             font-weight: 700;
             text-shadow: var(--neon-effect);
-            animation: pulse 3s infinite alternate;
-        }
-        
-        @keyframes pulse {
-            0% { text-shadow: 0 0 10px rgba(180, 112, 250, 0.8), 0 0 20px rgba(180, 112, 250, 0.6); }
-            100% { text-shadow: 0 0 15px rgba(255, 209, 4, 0.8), 0 0 30px rgba(255, 209, 4, 0.6); }
         }
         
         .hero-subtitle {
@@ -147,80 +142,43 @@
             line-height: 1.6;
         }
         
-        /* Servicios en forma de galaxia */
+        /* Galaxia interactiva */
         .services-galaxy {
             position: relative;
             min-height: 100vh;
-            padding: 100px 0;
+            padding: 50px 0;
+            overflow: hidden;
+            user-select: none;
         }
         
         .galaxy-center {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto 150px;
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             border-radius: 50%;
             background: radial-gradient(circle, var(--primary-purple) 0%, transparent 70%);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 50px rgba(180, 112, 250, 0.5);
-            animation: rotate 60s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            z-index: 1;
         }
         
         .galaxy-center-text {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: white;
             text-align: center;
-            width: 200px;
-        }
-        
-        .service-orbit {
-            position: absolute;
-            border: 1px dashed rgba(180, 112, 250, 0.3);
-            border-radius: 50%;
-            animation: rotate-reverse 60s linear infinite;
-        }
-        
-        @keyframes rotate-reverse {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
-        }
-        
-        .orbit-1 {
-            width: 600px;
-            height: 600px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .orbit-2 {
-            width: 900px;
-            height: 900px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .orbit-3 {
-            width: 1200px;
-            height: 1200px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 180px;
         }
         
         .service-planet {
             position: absolute;
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: var(--card-bg);
             display: flex;
@@ -230,133 +188,107 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s ease;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: grab;
+            z-index: 2;
+            touch-action: none;
+        }
+        
+        .service-planet:active {
+            cursor: grabbing;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(180, 112, 250, 0.8);
         }
         
         .service-planet:hover {
-            transform: scale(1.2) !important;
+            transform: scale(1.1);
             box-shadow: 0 0 30px rgba(180, 112, 250, 0.8);
-            z-index: 10;
         }
         
         .planet-1 {
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
             background: linear-gradient(135deg, var(--primary-purple), #8a2be2);
+            top: 30%;
+            left: 20%;
         }
         
         .planet-2 {
-            top: 0;
-            right: 20%;
-            transform: translateY(-50%);
             background: linear-gradient(135deg, var(--primary-yellow), #ff8c00);
+            top: 20%;
+            right: 25%;
         }
         
         .planet-3 {
-            bottom: 0;
-            left: 20%;
-            transform: translateY(50%);
             background: linear-gradient(135deg, #6a5acd, #9370db);
+            bottom: 25%;
+            left: 25%;
         }
         
         .planet-4 {
-            top: 20%;
-            right: 0;
-            transform: translateX(50%);
             background: linear-gradient(135deg, #ff1493, #ff69b4);
+            top: 35%;
+            right: 15%;
         }
         
         .planet-5 {
-            bottom: 20%;
-            left: 0;
-            transform: translateX(-50%);
             background: linear-gradient(135deg, #00bfff, #1e90ff);
+            bottom: 30%;
+            left: 15%;
         }
         
         .planet-6 {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
             background: linear-gradient(135deg, #3cb371, #2e8b57);
+            bottom: 20%;
+            right: 20%;
         }
         
         .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
         
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
         .service-desc {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .reset-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 20px;
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(180, 112, 250, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .reset-button:hover {
+            background: var(--primary-yellow);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 209, 4, 0.4);
         }
         
         /* Detalles de servicios */
         .service-details {
             padding: 100px 0;
             background: linear-gradient(to bottom, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 1));
+            position: relative;
+            z-index: 3;
         }
         
-        .detail-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 50px;
-            margin-bottom: 40px;
-            border-left: 5px solid var(--primary-purple);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .detail-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(180, 112, 250, 0.3);
-            border-left: 5px solid var(--primary-yellow);
-        }
-        
-        .detail-card h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-yellow);
-        }
-        
-        .detail-card p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-        }
-        
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .feature-icon {
-            color: var(--primary-purple);
-            font-size: 1.5rem;
-            margin-top: 3px;
-        }
-        
-        .feature-text {
-            font-size: 1rem;
-        }
-        
-        /* Footer futurista */
+        /* Footer y resto de estilos se mantienen igual */
         footer {
             padding: 80px 0 40px;
             background: linear-gradient(to top, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 1));
@@ -438,59 +370,45 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Efectos especiales */
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .delay-1 {
-            animation-delay: 1s;
-        }
-        
-        .delay-2 {
-            animation-delay: 2s;
-        }
-        
         /* Responsive */
         @media (max-width: 1200px) {
             .services-galaxy {
                 min-height: auto;
                 padding: 50px 0;
+                height: auto;
             }
             
             .galaxy-center {
-                margin-bottom: 100px;
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 0 auto 50px;
             }
             
             .service-planet {
-                position: static;
-                transform: none !important;
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
                 margin: 20px auto;
-                animation: none;
-            }
-            
-            .service-orbit {
-                display: none;
+                width: 200px;
+                height: 200px;
             }
         }
         
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
             
             .nav-links {
                 display: none;
-            }
-            
-            .detail-card {
-                padding: 30px;
             }
         }
     </style>
@@ -513,57 +431,56 @@
             <div class="hero-bg"></div>
             <div class="hero-content">
                 <h1 class="hero-title">Els Nostres Serveis</h1>
-                <p class="hero-subtitle">Descobreix com EVOLLAR transforma el concepte d'habitatge amb solucions flexibles i adaptatives per a cada etapa de la teva vida.</p>
+                <p class="hero-subtitle">Explora i interactua amb el nostre ecosistema de solucions d'habitatge flexible</p>
             </div>
         </section>
         
-        <section class="services-galaxy">
-            <div class="galaxy-center floating">
+        <section class="services-galaxy" id="galaxy">
+            <div class="galaxy-center">
                 <div class="galaxy-center-text">EVOLLAR<br>Ecosistema</div>
             </div>
             
-            <div class="service-orbit orbit-1"></div>
-            <div class="service-orbit orbit-2"></div>
-            <div class="service-orbit orbit-3"></div>
-            
-            <div class="service-planet planet-1 floating delay-1">
+            <div class="service-planet planet-1" id="planet1">
                 <div class="service-icon">🏡</div>
                 <h3 class="service-title">Habitatge Principal</h3>
                 <p class="service-desc">Vivendes de 90-200m² que evolucionen amb tu</p>
             </div>
             
-            <div class="service-planet planet-2 floating delay-2">
+            <div class="service-planet planet-2" id="planet2">
                 <div class="service-icon">🌴</div>
                 <h3 class="service-title">Segona Residència</h3>
                 <p class="service-desc">Alterna entre espais segons les teves necessitats</p>
             </div>
             
-            <div class="service-planet planet-3 floating">
+            <div class="service-planet planet-3" id="planet3">
                 <div class="service-icon">👥</div>
                 <h3 class="service-title">Coliving</h3>
                 <p class="service-desc">Espais compartits de 36m² amb comunitat</p>
             </div>
             
-            <div class="service-planet planet-4 floating delay-1">
+            <div class="service-planet planet-4" id="planet4">
                 <div class="service-icon">🏥</div>
                 <h3 class="service-title">Residència Assistida</h3>
                 <p class="service-desc">Solucions per a etapes amb necessitats especials</p>
             </div>
             
-            <div class="service-planet planet-5 floating delay-2">
+            <div class="service-planet planet-5" id="planet5">
                 <div class="service-icon">📈</div>
                 <h3 class="service-title">Inversió Immobiliària</h3>
                 <p class="service-desc">Patrimoni líquid amb rendiments</p>
             </div>
             
-            <div class="service-planet planet-6 floating">
+            <div class="service-planet planet-6" id="planet6">
                 <div class="service-icon">🔄</div>
                 <h3 class="service-title">Rehabilitació Flexible</h3>
                 <p class="service-desc">Transforma espais sense obres majors</p>
             </div>
+            
+            <button class="reset-button" id="resetBtn">Reiniciar Posicions</button>
         </section>
         
         <section class="service-details">
+            <!-- Contenido de detalles de servicios se mantiene igual -->
             <div class="detail-card">
                 <h3>Habitatge Evolutiu</h3>
                 <p>El nostre sistema permet que la teva llar creixi i es transformi al llarg de les diferents etapes de la teva vida, sense necessitat de mudances traumàtiques o processos complexos.</p>
@@ -676,8 +593,113 @@
                 </div>
             </div>
             
-            <p class="copyright">© 2023 EVOLLAR. Tots els drets reservats. | Disseny Innovador</p>
+            <p class="copyright">© 2025 EVOLLAR. Tots els drets reservats. | Disseny Innovador</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Posiciones iniciales de los planetas
+            const initialPositions = {
+                planet1: { top: '30%', left: '20%' },
+                planet2: { top: '20%', right: '25%' },
+                planet3: { top: '75%', left: '25%' },
+                planet4: { top: '35%', right: '15%' },
+                planet5: { top: '70%', left: '15%' },
+                planet6: { top: '80%', right: '20%' }
+            };
+            
+            // Guardar posiciones originales para el botón de reset
+            const planets = {};
+            for (let i = 1; i <= 6; i++) {
+                const planet = document.getElementById(`planet${i}`);
+                planets[`planet${i}`] = planet;
+                
+                // Configurar arrastre para cada planeta
+                setupDraggable(planet);
+            }
+            
+            // Botón de reset
+            const resetBtn = document.getElementById('resetBtn');
+            resetBtn.addEventListener('click', function() {
+                for (let i = 1; i <= 6; i++) {
+                    const planet = planets[`planet${i}`];
+                    const pos = initialPositions[`planet${i}`];
+                    
+                    planet.style.top = pos.top;
+                    planet.style.left = pos.left;
+                    planet.style.right = pos.right || 'auto';
+                    planet.style.bottom = pos.bottom || 'auto';
+                    planet.style.transform = 'none';
+                }
+            });
+            
+            // Función para hacer los planetas arrastrables
+            function setupDraggable(element) {
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                
+                element.onmousedown = dragMouseDown;
+                element.ontouchstart = dragTouchStart;
+                
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // obtener la posición del cursor al inicio
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+                
+                function dragTouchStart(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    pos3 = touch.clientX;
+                    pos4 = touch.clientY;
+                    document.ontouchend = closeDragElement;
+                    document.ontouchmove = elementDragTouch;
+                }
+                
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // calcular la nueva posición
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    // establecer la nueva posición
+                    element.style.top = (element.offsetTop - pos2) + "px";
+                    element.style.left = (element.offsetLeft - pos1) + "px";
+                    // resetear right y bottom
+                    element.style.right = 'auto';
+                    element.style.bottom = 'auto';
+                }
+                
+                function elementDragTouch(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    pos1 = pos3 - touch.clientX;
+                    pos2 = pos4 - touch.clientY;
+                    pos3 = touch.clientX;
+                    pos4 = touch.clientY;
+                    element.style.top = (element.offsetTop - pos2) + "px";
+                    element.style.left = (element.offsetLeft - pos1) + "px";
+                    element.style.right = 'auto';
+                    element.style.bottom = 'auto';
+                }
+                
+                function closeDragElement() {
+                    // detener el movimiento
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                    document.ontouchend = null;
+                    document.ontouchmove = null;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
