@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVOLLAR - Innovación y Tecnología</title>
+    <title>EVOLLAR - L'habitatge que creix amb tu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,229 +37,365 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0 20px;
         }
         
+        /* Header */
         header {
+            padding: 40px 0;
             text-align: center;
-            margin-bottom: 60px;
-            width: 100%;
-        }
-        
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
         }
         
         .logo {
-            width: 220px;
-            height: auto;
-            transition: transform 0.3s ease;
+            width: 200px;
+            margin-bottom: 20px;
         }
         
-        .logo:hover {
-            transform: scale(1.05) rotate(-5deg);
+        .hero {
+            margin: 60px 0;
+            text-align: center;
         }
         
-        h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
             background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-weight: 700;
-            letter-spacing: 1px;
         }
         
-        .tagline {
+        .hero p {
             font-size: 1.5rem;
             color: var(--text-gray);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 40px;
             line-height: 1.6;
         }
         
-        .highlight {
-            color: var(--primary-yellow);
-            font-weight: 500;
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            color: var(--dark-bg);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(180, 112, 250, 0.4);
         }
         
-        .content-grid {
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(180, 112, 250, 0.6);
+        }
+        
+        /* Concept Section */
+        .concept {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .concept h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-yellow);
+        }
+        
+        .concept-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            width: 100%;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         
-        .feature-card {
+        .concept-card {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
         
-        .feature-card:hover {
+        .concept-card:hover {
             transform: translateY(-10px);
+            border-color: var(--primary-purple);
             box-shadow: 0 15px 40px rgba(180, 112, 250, 0.2);
-            border-color: rgba(180, 112, 250, 0.3);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
+        .concept-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
             color: var(--primary-purple);
         }
         
-        .feature-title {
+        .concept-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--primary-yellow);
         }
         
-        .feature-desc {
+        .concept-card p {
             color: var(--text-gray);
             line-height: 1.6;
         }
         
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            margin-top: 60px;
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: rgba(22, 27, 34, 0.7);
+            margin: 60px 0;
+            border-radius: 20px;
         }
         
-        .menu-item {
-            background: linear-gradient(135deg, var(--primary-purple), #9a50ff);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(180, 112, 250, 0.3);
-            position: relative;
-            overflow: hidden;
-            height: 80px;
-        }
-        
-        .menu-item:nth-child(2) {
-            background: linear-gradient(135deg, var(--primary-yellow), #ffc000);
-        }
-        
-        .menu-item:nth-child(3) {
-            background: linear-gradient(135deg, #6a5acd, #9370db);
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(180, 112, 250, 0.4);
-        }
-        
-        .menu-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .menu-item:hover::before {
-            left: 100%;
-        }
-        
-        .menu-icon {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
-        
-        footer {
-            margin-top: 80px;
+        .comparison h2 {
             text-align: center;
-            color: var(--text-gray);
-            padding: 20px;
-            width: 100%;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-purple);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .content-grid {
+            .comparison-grid {
                 grid-template-columns: 1fr;
             }
+        }
+        
+        .comparison-column {
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .comparison-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .traditional h3 {
+            color: #ff6b6b;
+        }
+        
+        .evollar h3 {
+            color: var(--primary-yellow);
+        }
+        
+        .comparison-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .traditional .comparison-item {
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .evollar .comparison-item {
+            border-left: 4px solid var(--primary-yellow);
+        }
+        
+        /* Partners Section */
+        .partners {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .partners h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-purple);
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .partner-logo {
+            width: 150px;
+            height: 80px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(180, 112, 250, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-yellow);
+        }
+        
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo-container">
-                <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
-            </div>
-            <h1>EVOLLAR</h1>
-            <p class="tagline">Impulsando la <span class="highlight">innovación</span> con tecnología de vanguardia para un futuro más brillante</p>
+            <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
         </header>
         
-        <div class="content-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3 class="feature-title">Tecnología Avanzada</h3>
-                <p class="feature-desc">Soluciones tecnológicas personalizadas que se adaptan a las necesidades de tu negocio.</p>
+        <section class="hero">
+            <h1>L'habitatge que creix amb tu</h1>
+            <p>El sistema d'habitatge del futur: una solució flexible que s'adapta a les teves necessitats vitals.</p>
+            <a href="#contacte" class="cta-button">Vols saber més?</a>
+        </section>
+        
+        <section class="concept">
+            <h2>El Spotify de les vivendes</h2>
+            <p>EVOLLAR és un model innovador que transforma la manera d'entendre la propietat immobiliària.</p>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-icon">🔄</div>
+                    <h3>Propietat Flexible</h3>
+                    <p>L'habitatge canvia segons el teu cicle vital, permetent ajustos en mida, ubicació i ús.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="concept-icon">🔑</div>
+                    <h3>Accessibilitat</h3>
+                    <p>Redueix les barreres d'entrada a la propietat, facilitant l'accés a un habitatge adequat.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="concept-icon">💡</div>
+                    <h3>Innovació i Sostenibilitat</h3>
+                    <p>Reconversió àgil del patrimoni, evitant la degradació i maximitzant l'ús dels espais.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="comparison">
+            <h2>EVOLLAR vs Model Tradicional</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-column traditional">
+                    <h3>Model Actual</h3>
+                    
+                    <div class="comparison-item">
+                        <p>Rígid i poc adaptable</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Poc funcional i obsolet</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Patrimoni fix</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Poc accessible</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>✗ Economia d'escala</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-column evollar">
+                    <h3>EVOLLAR</h3>
+                    
+                    <div class="comparison-item">
+                        <p>Flexible i adaptable</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Funcional i actual</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Patrimoni fluid (líquid)</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>Facilita l'accés</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <p>✓ Economia d'escala</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="partners">
+            <h2>Els nostres partners</h2>
+            <p>Un model basat en la col·laboració públic-privada</p>
+            
+            <div class="partner-logos">
+                <div class="partner-logo">EMPRESA INVERSORA</div>
+                <div class="partner-logo">HEALTHCARE</div>
+                <div class="partner-logo">AJUNTAMENT</div>
+                <div class="partner-logo">GENERALITAT</div>
+                <div class="partner-logo">I2CAT</div>
+                <div class="partner-logo">REHABILITACIÓ</div>
+            </div>
+        </section>
+        
+        <footer id="contacte">
+            <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="footer-logo">
+            
+            <div class="footer-links">
+                <a href="#">Serveis</a>
+                <a href="#">Sobre nosaltres</a>
+                <a href="#">Contacte</a>
+                <a href="#">FAQ</a>
+                <a href="#">Press</a>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3 class="feature-title">Innovación Constante</h3>
-                <p class="feature-desc">Mantenemos nuestra ventaja competitiva a través de la investigación y desarrollo continuo.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Seguridad Integral</h3>
-                <p class="feature-desc">Protegemos tus datos con los más altos estándares de seguridad informática.</p>
-            </div>
-        </div>
-        
-        <div class="menu">
-            <a href="servicios.html" class="menu-item">
-                <span class="menu-icon">🚀</span>
-                Nuestros Servicios
-            </a>
-            <a href="nosotros.html" class="menu-item">
-                <span class="menu-icon">ℹ️</span>
-                Sobre Nosotros
-            </a>
-            <a href="contacto.html" class="menu-item">
-                <span class="menu-icon">📧</span>
-                Contáctanos
-            </a>
-        </div>
-        
-        <footer>
-            <p>© 2023 EVOLLAR. Todos los derechos reservados.</p>
+            <p class="copyright">© 2023 EVOLLAR. Tots els drets reservats.</p>
         </footer>
     </div>
 </body>
