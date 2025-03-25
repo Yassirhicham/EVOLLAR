@@ -4,77 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVOLLAR - Innovación y Tecnología</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-purple: #b470fa;
+            --primary-yellow: #ffd104;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-light: #f0f0f0;
+            --text-gray: #b3b3b3;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
+        
         body {
-            background-color: #0d1117;
-            color: white;
-            text-align: center;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(180, 112, 250, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 209, 4, 0.15) 0%, transparent 50%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
-        .container {
-            width: 90%;
-            max-width: 700px;
-            padding: 20px;
-            background: #161b22;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 255, 204, 0.2);
+        
+        header {
             text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
         }
-        .logo {
-            width: 180px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2rem;
-            color: #00ffcc;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #b3b3b3;
-        }
-        .menu {
-            margin-top: 20px;
+        
+        .logo-container {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
         }
-        .menu a {
-            display: block;
-            padding: 12px;
-            background: #00ffcc;
-            color: #d6c3ff;
-            font-weight: bold;
+        
+        .logo {
+            width: 220px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: var(--primary-yellow);
+            font-weight: 500;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(180, 112, 250, 0.2);
+            border-color: rgba(180, 112, 250, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-purple);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-yellow);
+        }
+        
+        .feature-desc {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 60px;
+        }
+        
+        .menu-item {
+            background: linear-gradient(135deg, var(--primary-purple), #9a50ff);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease-in-out;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(180, 112, 250, 0.3);
+            position: relative;
+            overflow: hidden;
+            height: 80px;
         }
-        .menu a:hover {
-            background: #00cc99;
-            transform: scale(1.05);
+        
+        .menu-item:nth-child(2) {
+            background: linear-gradient(135deg, var(--primary-yellow), #ffc000);
+        }
+        
+        .menu-item:nth-child(3) {
+            background: linear-gradient(135deg, #6a5acd, #9370db);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(180, 112, 250, 0.4);
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .menu-item:hover::before {
+            left: 100%;
+        }
+        
+        .menu-icon {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--text-gray);
+            padding: 20px;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
-        <h1>EVOLLAR</h1>
-        <p>Impulsando la innovación con tecnología de vanguardia</p>
-        <div class="menu">
-            <a href="servicios.html">🚀 Nuestros Servicios</a>
-            <a href="nosotros.html">ℹ️ Sobre Nosotros</a>
-            <a href="contacto.html">📧 Contáctanos</a>
+        <header>
+            <div class="logo-container">
+                <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
+            </div>
+            <h1>EVOLLAR</h1>
+            <p class="tagline">Impulsando la <span class="highlight">innovación</span> con tecnología de vanguardia para un futuro más brillante</p>
+        </header>
+        
+        <div class="content-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Tecnología Avanzada</h3>
+                <p class="feature-desc">Soluciones tecnológicas personalizadas que se adaptan a las necesidades de tu negocio.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3 class="feature-title">Innovación Constante</h3>
+                <p class="feature-desc">Mantenemos nuestra ventaja competitiva a través de la investigación y desarrollo continuo.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Seguridad Integral</h3>
+                <p class="feature-desc">Protegemos tus datos con los más altos estándares de seguridad informática.</p>
+            </div>
         </div>
+        
+        <div class="menu">
+            <a href="servicios.html" class="menu-item">
+                <span class="menu-icon">🚀</span>
+                Nuestros Servicios
+            </a>
+            <a href="nosotros.html" class="menu-item">
+                <span class="menu-icon">ℹ️</span>
+                Sobre Nosotros
+            </a>
+            <a href="contacto.html" class="menu-item">
+                <span class="menu-icon">📧</span>
+                Contáctanos
+            </a>
+        </div>
+        
+        <footer>
+            <p>© 2023 EVOLLAR. Todos los derechos reservados.</p>
+        </footer>
     </div>
 </body>
 </html>
