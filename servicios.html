@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveis | EVOLLAR - L'habitatge que creix amb tu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #b470fa;
+            --primary-yellow: #ffd104;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-light: #f0f0f0;
+            --text-gray: #b3b3b3;
+            --neon-effect: 0 0 10px rgba(180, 112, 250, 0.8), 0 0 20px rgba(180, 112, 250, 0.6);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header estilizado */
+        header {
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-yellow);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero section futurista */
+        .services-hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(180, 112, 250, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 209, 4, 0.2) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-shadow: var(--neon-effect);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(180, 112, 250, 0.8), 0 0 20px rgba(180, 112, 250, 0.6); }
+            100% { text-shadow: 0 0 15px rgba(255, 209, 4, 0.8), 0 0 30px rgba(255, 209, 4, 0.6); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        /* Servicios en forma de galaxia */
+        .services-galaxy {
+            position: relative;
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+        
+        .galaxy-center {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-purple) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(180, 112, 250, 0.5);
+            animation: rotate 60s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .galaxy-center-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .service-orbit {
+            position: absolute;
+            border: 1px dashed rgba(180, 112, 250, 0.3);
+            border-radius: 50%;
+            animation: rotate-reverse 60s linear infinite;
+        }
+        
+        @keyframes rotate-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        
+        .orbit-1 {
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .orbit-2 {
+            width: 900px;
+            height: 900px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .orbit-3 {
+            width: 1200px;
+            height: 1200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .service-planet {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .service-planet:hover {
+            transform: scale(1.2) !important;
+            box-shadow: 0 0 30px rgba(180, 112, 250, 0.8);
+            z-index: 10;
+        }
+        
+        .planet-1 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--primary-purple), #8a2be2);
+        }
+        
+        .planet-2 {
+            top: 0;
+            right: 20%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--primary-yellow), #ff8c00);
+        }
+        
+        .planet-3 {
+            bottom: 0;
+            left: 20%;
+            transform: translateY(50%);
+            background: linear-gradient(135deg, #6a5acd, #9370db);
+        }
+        
+        .planet-4 {
+            top: 20%;
+            right: 0;
+            transform: translateX(50%);
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+        }
+        
+        .planet-5 {
+            bottom: 20%;
+            left: 0;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00bfff, #1e90ff);
+        }
+        
+        .planet-6 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #3cb371, #2e8b57);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .service-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Detalles de servicios */
+        .service-details {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 1));
+        }
+        
+        .detail-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-purple);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(180, 112, 250, 0.3);
+            border-left: 5px solid var(--primary-yellow);
+        }
+        
+        .detail-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-yellow);
+        }
+        
+        .detail-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-icon {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+        
+        .feature-text {
+            font-size: 1rem;
+        }
+        
+        /* Footer futurista */
+        footer {
+            padding: 80px 0 40px;
+            background: linear-gradient(to top, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 1));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-desc {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-heading {
+            font-size: 1.3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-purple);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-yellow);
+        }
+        
+        .footer-links i {
+            color: var(--primary-purple);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Efectos especiales */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .delay-1 {
+            animation-delay: 1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 2s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-galaxy {
+                min-height: auto;
+                padding: 50px 0;
+            }
+            
+            .galaxy-center {
+                margin-bottom: 100px;
+            }
+            
+            .service-planet {
+                position: static;
+                transform: none !important;
+                margin: 20px auto;
+                animation: none;
+            }
+            
+            .service-orbit {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .detail-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
+                <nav class="nav-links">
+                    <a href="index.html">Inici</a>
+                    <a href="serveis.html">Serveis</a>
+                    <a href="nosaltres.html">Sobre nosaltres</a>
+                    <a href="contacte.html">Contacte</a>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="services-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Els Nostres Serveis</h1>
+                <p class="hero-subtitle">Descobreix com EVOLLAR transforma el concepte d'habitatge amb solucions flexibles i adaptatives per a cada etapa de la teva vida.</p>
+            </div>
+        </section>
+        
+        <section class="services-galaxy">
+            <div class="galaxy-center floating">
+                <div class="galaxy-center-text">EVOLLAR<br>Ecosistema</div>
+            </div>
+            
+            <div class="service-orbit orbit-1"></div>
+            <div class="service-orbit orbit-2"></div>
+            <div class="service-orbit orbit-3"></div>
+            
+            <div class="service-planet planet-1 floating delay-1">
+                <div class="service-icon">🏡</div>
+                <h3 class="service-title">Habitatge Principal</h3>
+                <p class="service-desc">Vivendes de 90-200m² que evolucionen amb tu</p>
+            </div>
+            
+            <div class="service-planet planet-2 floating delay-2">
+                <div class="service-icon">🌴</div>
+                <h3 class="service-title">Segona Residència</h3>
+                <p class="service-desc">Alterna entre espais segons les teves necessitats</p>
+            </div>
+            
+            <div class="service-planet planet-3 floating">
+                <div class="service-icon">👥</div>
+                <h3 class="service-title">Coliving</h3>
+                <p class="service-desc">Espais compartits de 36m² amb comunitat</p>
+            </div>
+            
+            <div class="service-planet planet-4 floating delay-1">
+                <div class="service-icon">🏥</div>
+                <h3 class="service-title">Residència Assistida</h3>
+                <p class="service-desc">Solucions per a etapes amb necessitats especials</p>
+            </div>
+            
+            <div class="service-planet planet-5 floating delay-2">
+                <div class="service-icon">📈</div>
+                <h3 class="service-title">Inversió Immobiliària</h3>
+                <p class="service-desc">Patrimoni líquid amb rendiments</p>
+            </div>
+            
+            <div class="service-planet planet-6 floating">
+                <div class="service-icon">🔄</div>
+                <h3 class="service-title">Rehabilitació Flexible</h3>
+                <p class="service-desc">Transforma espais sense obres majors</p>
+            </div>
+        </section>
+        
+        <section class="service-details">
+            <div class="detail-card">
+                <h3>Habitatge Evolutiu</h3>
+                <p>El nostre sistema permet que la teva llar creixi i es transformi al llarg de les diferents etapes de la teva vida, sense necessitat de mudances traumàtiques o processos complexos.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <p class="feature-text">Canvi d'espai segons necessitats familiars</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <p class="feature-text">Transició sense mudances físiques</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <p class="feature-text">Adaptació a canvis laborals o personals</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <p class="feature-text">Sistema de propietat en cadena</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Model Financer Flexible</h3>
+                <p>Oferim múltiples opcions d'accés a l'habitatge que s'adapten a la teva situació econòmica actual i futura, amb possibilitat d'evolució.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <p class="feature-text">Lloguer amb opció a compra progressiva</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🏦</span>
+                        <p class="feature-text">Finançament adaptat a cada etapa vital</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔄</span>
+                        <p class="feature-text">Conversió entre lloguer i propietat</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <p class="feature-text">Rendiments per inversors</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Gestó Intel·ligent d'Espais</h3>
+                <p>Tecnologia integrada per a una gestió eficient dels espais i recursos, maximitzant el comfort i la sostenibilitat.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">📱</span>
+                        <p class="feature-text">App per gestionar la teva vivenda</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌱</span>
+                        <p class="feature-text">Solucions sostenibles integrades</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🛠️</span>
+                        <p class="feature-text">Manteniment predictiu</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👨‍💻</span>
+                        <p class="feature-text">Assistència 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="footer-logo">
+                    <p class="footer-desc">EVOLLAR és un model innovador d'habitatge flexible que s'adapta a les diferents etapes de la vida, oferint solucions personalitzades i accessibles.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Enllaços Ràpids</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>→</i> Inici</a></li>
+                        <li><a href="#"><i>→</i> Serveis</a></li>
+                        <li><a href="#"><i>→</i> Projectes</a></li>
+                        <li><a href="#"><i>→</i> Contacte</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Contacte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>✉️</i> info@evollar.cat</a></li>
+                        <li><a href="#"><i>📞</i> +34 123 456 789</a></li>
+                        <li><a href="#"><i>🏢</i> Barcelona, Catalunya</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Xarxes Socials</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>📱</i> Instagram</a></li>
+                        <li><a href="#"><i>💼</i> LinkedIn</a></li>
+                        <li><a href="#"><i>🐦</i> Twitter</a></li>
+                        <li><a href="#"><i>📹</i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p class="copyright">© 2023 EVOLLAR. Tots els drets reservats. | Disseny Innovador</p>
+        </div>
+    </footer>
+</body>
+</html>
