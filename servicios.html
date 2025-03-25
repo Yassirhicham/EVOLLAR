@@ -280,33 +280,255 @@
             box-shadow: 0 8px 25px rgba(255, 209, 4, 0.4);
         }
         
-        /* Detalles de servicios */
-        .service-details {
+        /* Nueva sección de beneficios */
+        .benefits-section {
             padding: 100px 0;
-            background: linear-gradient(to bottom, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 1));
+            background: linear-gradient(135deg, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 1));
             position: relative;
             z-index: 3;
         }
         
-        /* Footer y resto de estilos se mantienen igual */
-        footer {
-            padding: 80px 0 40px;
-            background: linear-gradient(to top, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 1));
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
         
-        .footer-content {
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(180, 112, 250, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(180, 112, 250, 0.2);
+            border-color: rgba(180, 112, 250, 0.3);
+        }
+        
+        .benefit-card:hover::before {
+            opacity: 1;
+            animation: shine 1.5s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-30%, -30%); }
+            100% { transform: rotate(45deg) translate(30%, 30%); }
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-yellow);
+        }
+        
+        .benefit-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .benefit-desc {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Sección de testimonios */
+        .testimonials-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(22, 27, 34, 1));
+            position: relative;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border-left: 5px solid var(--primary-purple);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(180, 112, 250, 0.2);
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            line-height: 1;
+        }
+        
+        .testimonial-author {
             display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-yellow);
+        }
+        
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Sección CTA mejorada */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(180, 112, 250, 0.1), rgba(255, 209, 4, 0.1));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(180, 112, 250, 0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .cta-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .primary-button {
+            background: linear-gradient(45deg, var(--primary-purple), #9a50ff);
+            color: white;
+            box-shadow: 0 5px 20px rgba(180, 112, 250, 0.4);
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(180, 112, 250, 0.6);
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: var(--primary-yellow);
+            border: 2px solid var(--primary-yellow);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255, 209, 4, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer mejorado */
+        .main-footer {
+            background: linear-gradient(to right, #0a0d12, #161b22);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 60px;
-            justify-content: space-between;
-            margin-bottom: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .footer-column {
-            flex: 1;
-            min-width: 250px;
+            position: relative;
         }
         
         .footer-logo {
@@ -316,8 +538,31 @@
         
         .footer-desc {
             color: var(--text-gray);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-purple);
+            transform: translateY(-3px);
         }
         
         .footer-heading {
@@ -325,7 +570,7 @@
             color: var(--primary-yellow);
             margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .footer-heading::after {
@@ -334,8 +579,8 @@
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 2px;
-            background: var(--primary-purple);
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-yellow));
         }
         
         .footer-links {
@@ -349,7 +594,7 @@
         .footer-links a {
             color: var(--text-gray);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -357,17 +602,24 @@
         
         .footer-links a:hover {
             color: var(--primary-yellow);
+            transform: translateX(5px);
         }
         
         .footer-links i {
             color: var(--primary-purple);
+            font-size: 0.8rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .copyright {
-            text-align: center;
             color: var(--text-gray);
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
         }
         
         /* Responsive */
@@ -409,6 +661,19 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-subtitle {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -479,121 +744,157 @@
             <button class="reset-button" id="resetBtn">Reiniciar Posicions</button>
         </section>
         
-        <section class="service-details">
-            <!-- Contenido de detalles de servicios se mantiene igual -->
-            <div class="detail-card">
-                <h3>Habitatge Evolutiu</h3>
-                <p>El nostre sistema permet que la teva llar creixi i es transformi al llarg de les diferents etapes de la teva vida, sense necessitat de mudances traumàtiques o processos complexos.</p>
+        <!-- Nueva sección de beneficios -->
+        <section class="benefits-section">
+            <h2 class="section-title">Beneficis del Model EVOLLAR</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h3 class="benefit-title">Flexibilitat Absoluta</h3>
+                    <p class="benefit-desc">Adapta la teva vivenda a cada etapa vital sense preocupacions per mudances o contractes rígids. El teu espai evoluciona amb tu.</p>
+                </div>
                 
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <p class="feature-text">Canvi d'espai segons necessitats familiars</p>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Economia Intel·ligent</h3>
+                    <p class="benefit-desc">Redueix costos gràcies a la nostra economia d'escala i models de finançament adaptatius que s'ajusten a la teva situació.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h3 class="benefit-title">Sostenibilitat Integral</h3>
+                    <p class="benefit-desc">Espais dissenyats amb materials ecològics i tecnologies eficients que redueixen la teva petjada ambiental.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">Seguretat Patrimonial</h3>
+                    <p class="benefit-desc">El teu patrimoni està protegit i pot créixer gràcies al nostre sistema de propietat líquida i inversió compartida.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3 class="benefit-title">Comunitat Connectada</h3>
+                    <p class="benefit-desc">Accés a una xarxa de persones amb valors similars i oportunitats de col·laboració en entorns dissenyats per a la connexió.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">Tecnologia Integrada</h3>
+                    <p class="benefit-desc">Gestió intel·ligent dels espais mitjançant la nostra plataforma digital que simplifica totes les operacions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de testimonios -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">Els Nostres Usuaris</h2>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">EVOLLAR va canviar completament la meva manera d'entendre l'habitatge. Després de 3 anys utilitzant el seu sistema, puc dir que mai més tornaré al model tradicional.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>Marc Rodríguez</h4>
+                                <p>Usuari des de 2021</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <p class="feature-text">Transició sense mudances físiques</p>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Com a inversor, el model EVOLLAR m'ofereix una flexibilitat i uns rendiments que no trobo en cap altre producte immobiliari. La recomano a tothom que busqui alternatives intel·ligents.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <h4>Anna Vilalta</h4>
+                                <p>Inversora i usuària</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <p class="feature-text">Adaptació a canvis laborals o personals</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <p class="feature-text">Sistema de propietat en cadena</p>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Quan vaig necessitar passar a una residència assistida, el sistema EVOLLAR em va permetre fer-ho sense traumes i mantenint part del meu patrimoni. Un canvi vital sense estrès.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">J</div>
+                            <div class="author-info">
+                                <h4>Josep Maria García</h4>
+                                <p>Usuari senior</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="detail-card">
-                <h3>Model Financer Flexible</h3>
-                <p>Oferim múltiples opcions d'accés a l'habitatge que s'adapten a la teva situació econòmica actual i futura, amb possibilitat d'evolució.</p>
+        </section>
+        
+        <!-- Sección CTA mejorada -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Preparat per revolucionar la teva manera de viure?</h2>
+                <p class="cta-subtitle">Descobreix com EVOLLAR pot adaptar-se a les teves necessitats actuals i futures. Sigues part del canvi cap a un model d'habitatge més intel·ligent i humà.</p>
                 
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <span class="feature-icon">💰</span>
-                        <p class="feature-text">Lloguer amb opció a compra progressiva</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🏦</span>
-                        <p class="feature-text">Finançament adaptat a cada etapa vital</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🔄</span>
-                        <p class="feature-text">Conversió entre lloguer i propietat</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📊</span>
-                        <p class="feature-text">Rendiments per inversors</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="detail-card">
-                <h3>Gestó Intel·ligent d'Espais</h3>
-                <p>Tecnologia integrada per a una gestió eficient dels espais i recursos, maximitzant el comfort i la sostenibilitat.</p>
-                
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <span class="feature-icon">📱</span>
-                        <p class="feature-text">App per gestionar la teva vivenda</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🌱</span>
-                        <p class="feature-text">Solucions sostenibles integrades</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🛠️</span>
-                        <p class="feature-text">Manteniment predictiu</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">👨‍💻</span>
-                        <p class="feature-text">Assistència 24/7</p>
-                    </div>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary-button">Parlem ara</a>
+                    <a href="#" class="cta-button secondary-button">Més informació</a>
                 </div>
             </div>
         </section>
     </div>
     
-    <footer>
+    <!-- Footer mejorado -->
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="footer-logo">
                     <p class="footer-desc">EVOLLAR és un model innovador d'habitatge flexible que s'adapta a les diferents etapes de la vida, oferint solucions personalitzades i accessibles.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📹</a>
+                    </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3 class="footer-heading">Enllaços Ràpids</h3>
+                    <h3 class="footer-heading">Serveis</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i>→</i> Inici</a></li>
-                        <li><a href="#"><i>→</i> Serveis</a></li>
-                        <li><a href="#"><i>→</i> Projectes</a></li>
-                        <li><a href="#"><i>→</i> Contacte</a></li>
+                        <li><a href="#"><i>→</i> Habitatge Principal</a></li>
+                        <li><a href="#"><i>→</i> Segona Residència</a></li>
+                        <li><a href="#"><i>→</i> Coliving</a></li>
+                        <li><a href="#"><i>→</i> Residència Assistida</a></li>
+                        <li><a href="#"><i>→</i> Inversió Immobiliària</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>→</i> Sobre Nosaltres</a></li>
+                        <li><a href="#"><i>→</i> Equip</a></li>
+                        <li><a href="#"><i>→</i> Partners</a></li>
+                        <li><a href="#"><i>→</i> Treballa amb Nosaltres</a></li>
+                        <li><a href="#"><i>→</i> Premsa</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3 class="footer-heading">Contacte</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i>✉️</i> info@evollar.cat</a></li>
-                        <li><a href="#"><i>📞</i> +34 123 456 789</a></li>
-                        <li><a href="#"><i>🏢</i> Barcelona, Catalunya</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-heading">Xarxes Socials</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i>📱</i> Instagram</a></li>
-                        <li><a href="#"><i>💼</i> LinkedIn</a></li>
-                        <li><a href="#"><i>🐦</i> Twitter</a></li>
-                        <li><a href="#"><i>📹</i> YouTube</a></li>
+                        <li><a href="#"><i>→</i> info@evollar.cat</a></li>
+                        <li><a href="#"><i>→</i> +34 123 456 789</a></li>
+                        <li><a href="#"><i>→</i> Oficina Central: Barcelona</a></li>
+                        <li><a href="#"><i>→</i> Agenda una cita</a></li>
+                        <li><a href="#"><i>→</i> FAQ</a></li>
                     </ul>
                 </div>
             </div>
             
-            <p class="copyright">© 2025 EVOLLAR. Tots els drets reservats. | Disseny Innovador</p>
+            <div class="footer-bottom">
+                <p class="copyright">© 2023 EVOLLAR. Tots els drets reservats. | Avís legal | Política de privacitat | Cookies</p>
+            </div>
         </div>
     </footer>
 
