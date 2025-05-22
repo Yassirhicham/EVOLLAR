@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | EVOLLAR - The Home That Grows With You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #b470fa;
+            --primary-yellow: #ffd104;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-light: #f0f0f0;
+            --text-gray: #b3b3b3;
+            --neon-effect: 0 0 10px rgba(180, 112, 250, 0.8), 0 0 20px rgba(180, 112, 250, 0.6);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-yellow);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(180, 112, 250, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 209, 4, 0.2) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-shadow: var(--neon-effect);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(180, 112, 250, 0.3), rgba(255, 209, 4, 0.3));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover::before {
+            opacity: 1;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 1));
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+        
+        .story-text p {
+            margin-bottom: 20px;
+        }
+        
+        .story-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(180, 112, 250, 0.2);
+            border-color: rgba(180, 112, 250, 0.3);
+        }
+        
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-yellow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .member-position {
+            color: var(--primary-yellow);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .member-bio {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(180, 112, 250, 0.1), rgba(255, 209, 4, 0.1));
+            position: relative;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            padding: 40px;
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-yellow);
+        }
+        
+        .contact-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-purple);
+            margin-top: 5px;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        .contact-text p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            background: rgba(180, 112, 250, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--primary-purple), #9a50ff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(180, 112, 250, 0.4);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(to right, #0a0d12, #161b22);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            position: relative;
+        }
+        
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-desc {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-purple);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-yellow));
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-yellow);
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            color: var(--primary-purple);
+            font-size: 0.8rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="logo">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="about-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Our Story</h1>
+                <p class="hero-subtitle">Redefining housing for a changing world through innovation and flexibility</p>
+            </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="container">
+                <div class="video-container">
+                    <!-- Replace with your actual video file -->
+                    <video poster="video-poster.jpg" controls>
+                        <source src="Evollar_ Revoluciona tu segunda vivienda 2025-05-22.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <h2 class="section-title">Who We Are</h2>
+                
+                <div class="story-content">
+                    <div class="story-text">
+                        <p>EVOLLAR was born in 2020 from a simple but powerful idea: housing should adapt to people, not the other way around. Frustrated by the rigidity of traditional real estate models, our founders set out to create a solution that evolves with life's changes.</p>
+                        
+                        <p>What began as an experiment in Barcelona has grown into a movement transforming how people think about home ownership. We combine cutting-edge technology with human-centered design to create living spaces that are as dynamic as the lives they support.</p>
+                        
+                        <p>Our team of architects, engineers, and community builders work together to challenge conventions and create housing solutions that are sustainable, accessible, and truly responsive to human needs.</p>
+                    </div>
+                    
+                    <div class="story-image">
+                        <img src="team-photo.jpg" alt="EVOLLAR team working together">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Meet The Team</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">J</div>
+                        <h3 class="member-name">Jane Smith</h3>
+                        <p class="member-position">CEO & Co-Founder</p>
+                        <p class="member-bio">Former urban planner with 15 years experience in sustainable development and community design.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">M</div>
+                        <h3 class="member-name">Mark Johnson</h3>
+                        <p class="member-position">CTO & Co-Founder</p>
+                        <p class="member-bio">Tech innovator specializing in smart home systems and property management platforms.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">A</div>
+                        <h3 class="member-name">Anna Chen</h3>
+                        <p class="member-position">Head of Design</p>
+                        <p class="member-bio">Architect focused on adaptive reuse and modular living solutions.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">R</div>
+                        <h3 class="member-name">Robert García</h3>
+                        <p class="member-position">Community Director</p>
+                        <p class="member-bio">Expert in building connected neighborhoods and resident experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2 class="contact-title">Get In Touch</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h3>Our Office</h3>
+                                <p>Innovation District, Barcelona<br>08005, Spain</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <p>+34 123 456 789<br>Mon-Fri, 9am-6pm CET</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>hello@evollar.com<br>We reply within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2 class="contact-title">Send Us a Message</h2>
+                        
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="Evollar_Logo.png" alt="EVOLLAR Logo" class="footer-logo">
+                    <p class="footer-desc">EVOLLAR is an innovative flexible housing model that adapts to different life stages, offering personalized and accessible solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📹</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>→</i> Primary Residence</a></li>
+                        <li><a href="#"><i>→</i> Second Home</a></li>
+                        <li><a href="#"><i>→</i> Coliving</a></li>
+                        <li><a href="#"><i>→</i> Assisted Living</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>→</i> About Us</a></li>
+                        <li><a href="#"><i>→</i> Our Team</a></li>
+                        <li><a href="#"><i>→</i> Careers</a></li>
+                        <li><a href="#"><i>→</i> Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i>→</i> Blog</a></li>
+                        <li><a href="#"><i>→</i> FAQ</a></li>
+                        <li><a href="#"><i>→</i> Terms</a></li>
+                        <li><a href="#"><i>→</i> Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 EVOLLAR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
