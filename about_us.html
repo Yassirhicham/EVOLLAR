@@ -283,6 +283,23 @@
             font-style: italic;
             text-align: center;
         }
+        .lite-youtube {
+            background-color: #000;
+            position: relative;
+            display: block;
+            contain: content;
+            background-position: center center;
+            background-size: cover;
+            cursor: pointer;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .lite-youtube::after {
+            content: "";
+            display: block;
+            padding-bottom: calc(100% / (16 / 9));
+        }
         
         .member-name {
             font-size: 1.5rem;
@@ -577,23 +594,15 @@
             </div>
         </section>
         
-           <!-- Video Section - Adaptado a tu diseño -->
-        <section class="video-section">
-            <div class="container">
-                <h2 class="section-title">Nuestra Solución en Video</h2>
-                <div class="video-container">
-                    <iframe 
-                        src="https://youtu.be/35NX9fBR7oo" 
-                        title="Video de EVOLLAR - Viviendas que evolucionan contigo" 
-                        frameborder="0" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="video-caption">
-                    <p>Descubre cómo nuestras viviendas se adaptan a tus necesidades cambiantes</p>
-                </div>
-            </div>
-        </section>https://youtu.be/35NX9fBR7oo
+        <div class="lite-youtube">
+            <iframe 
+                src="https://www.youtube-nocookie.com/embed/35NX9fBR7oo" 
+                loading="lazy" 
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
         
         <!-- Story Section -->
         <section class="story-section">
