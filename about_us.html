@@ -142,49 +142,45 @@
         }
         
         /* Video Section */
+        /* CSS */
         .video-section {
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 20px;
+        padding: 60px 0;
+        text-align: center;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
         }
-        
-        .video-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(180, 112, 250, 0.3), rgba(255, 209, 4, 0.3));
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+
+        .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+        height: 0;
+        overflow: hidden;
+        margin: 30px auto;
+        max-width: 900px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        
-        .video-container:hover::before {
-            opacity: 1;
+
+        .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
         }
-        
-        .video-container video {
-            width: 100%;
-            display: block;
+
+        .video-description {
+        margin-top: 20px;
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
         }
         
         /* Story Section */
@@ -282,23 +278,6 @@
             color: var(--text-gray);
             font-style: italic;
             text-align: center;
-        }
-        .lite-youtube {
-            background-color: #000;
-            position: relative;
-            display: block;
-            contain: content;
-            background-position: center center;
-            background-size: cover;
-            cursor: pointer;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .lite-youtube::after {
-            content: "";
-            display: block;
-            padding-bottom: calc(100% / (16 / 9));
         }
         
         .member-name {
@@ -594,14 +573,21 @@
             </div>
         </section>
         
-        <div class="lite-youtube">
-            <iframe 
-                src="https://www.youtube-nocookie.com/embed/35NX9fBR7oo" 
-                loading="lazy" 
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+        <!-- HTML -->
+        <section class="video-section">
+            <div class="container">
+            <h2>Nuestra Solución en Video</h2>
+            <div class="video-wrapper">
+                <iframe 
+                src="https://www.youtube.com/embed/35NX9fBR7oo" 
+                title="EVOLLAR - Viviendas adaptables" 
+                frameborder="0" 
                 allowfullscreen>
-            </iframe>
-        </div>
+                </iframe>
+            </div>
+            <p class="video-description">Descubre cómo nuestras viviendas se adaptan a tus necesidades cambiantes</p>
+            </div>
+        </section>
         
         
         <!-- Story Section -->
