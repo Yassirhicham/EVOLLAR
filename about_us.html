@@ -694,7 +694,13 @@
                     <div class="contact-form">
                         <h2 class="contact-title">Send Us a Message</h2>
                         
-                        <form action="#" method="POST">
+                        <!-- Sustituye el correo aquí -->
+                        <form action="https://formsubmit.co/yassirhicham1@gmail.com" method="POST">
+                            
+                            <!-- Configuraciones ocultas -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://tupagina.com/gracias.html"> <!-- Opcional -->
+
                             <div class="form-group">
                                 <label for="name">Your Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -718,6 +724,8 @@
                             <button type="submit" class="submit-btn">Send Message</button>
                         </form>
                     </div>
+
+
                 </div>
             </div>
         </section>
